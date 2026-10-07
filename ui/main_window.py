@@ -1,5 +1,5 @@
-from PyQt6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QPushButton, QSlider, QLabel, QDockWidget
-from PyQt6.QtCore import Qt
+from PySide6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QPushButton, QSlider, QLabel, QDockWidget
+from PySide6.QtCore import Qt
 from rendering.gl_widget import GLWidget
 
 class MainWindow(QMainWindow):

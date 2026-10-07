@@ -1,5 +1,5 @@
-from PyQt6.QtOpenGLWidgets import QOpenGLWidget
-from PyQt6.QtCore import Qt
+from PySide6.QtOpenGLWidgets import QOpenGLWidget
+from PySide6.QtCore import Qt
 from OpenGL.GL import *
 from OpenGL.GLU import *
 from rendering.camera import Camera

@@ -1,39 +1,37 @@
 # 3D Gaussian Splatting Demo
 
-Tento projekt slúži ako vzdelávacia implementácia a vizualizátor pre **3D Gaussian Splatting (3DGS)**. 
-Je zameraný na pochopenie základných matematických princípov reprezentácie 3D scén pomocou 3D gaussovských elipsoidov, projekcie z 3D do 2D (splattingu), alfa-blendingu a vizualizácie pomocou OpenGL.
+Tento projekt slúži ako vzdelávacia implementácia a interaktívny prehliadač (viewer) pre **3D Gaussian Splatting (3DGS)**.
+Cieľom je pochopiť a od základov implementovať matematické princípy reprezentácie 3D scén, 3D kovariančných matíc, projekcie do 2D (splatting), alfa-blendingu a vykresľovania v reálnom čase pomocou OpenGL.
 
 ## Architektúra projektu
 
-- `main.py` - Hlavný spúšťací skript.
-- `ui/` - Grafické užívateľské rozhranie (GUI) postavené na PyQt6.
-- `rendering/` - Logika pre vykresľovanie (PyOpenGL) a virtuálna orbitálna kamera.
-- `core/` - Jadro obsahujúce matematický model pre Gaussove elipsoidy a operácie s nimi.
+- `main.py` - Hlavná aplikačná slučka (event loop, spracovanie vstupu a okna).
+- `rendering/`
+  - `renderer.py` - OpenGL renderovacie jadro (projekcia, stavy OpenGL, 3D mriežka a osi).
+  - `camera.py` - Orbitálna 3D kamera (rotácia, posun, približovanie).
+- `core/`
+  - `gaussian_model.py` - Matematická reprezentácia 3D Gaussov (načítanie dát, transformácie, 2D splatting).
 
-## Inštalácia a spustenie
+## Ovládanie
+- **Ľavé tlačidlo myši (ťahanie):** Rotácia kamery (Orbit okolo stredu)
+- **Pravé / Stredné tlačidlo myši (ťahanie):** Posun cieľového bodu (Pan)
+- **Koliesko myši:** Priblíženie / oddialenie (Zoom)
+- **Kláves R:** Reset pohľadu kamery
+- **Kláves ESC:** Ukončenie
 
-Projekt využíva vlastné Python virtuálne prostredie (`venv`).
+## Spustenie
 
-### 1. Aktivácia virtuálneho prostredia
-Pred inštaláciou balíčkov a spustením je nutné aktivovať virtuálne prostredie. V termináli v zložke projektu spustite:
+1. Aktivácia prostredia:
+   ```cmd
+   venv\Scripts\activate
+   ```
 
-**Na operačnom systéme Windows (Príkazový riadok / PowerShell):**
-```cmd
-venv\Scripts\activate
-```
+2. Inštalácia závislostí:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-**Na Linuxe / macOS:**
-```bash
-source venv/bin/activate
-```
-
-### 2. Inštalácia závislostí
-Po aktivácii prostredia nainštalujte požadované knižnice:
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Spustenie aplikácie
-```bash
-python main.py
-```
+3. Spustenie aplikácie:
+   ```bash
+   python main.py
+   ```
