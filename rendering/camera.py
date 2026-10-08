@@ -17,6 +17,10 @@ class Camera:
 
     def apply(self):
         """Aplikuje pohľadovú maticu (gluLookAt) do OpenGL."""
+        from OpenGL.GL import glMatrixMode, glLoadIdentity, GL_MODELVIEW
+        glMatrixMode(GL_MODELVIEW)
+        glLoadIdentity()
+
         rad_pitch = math.radians(self.pitch)
         rad_yaw = math.radians(self.yaw)
 
